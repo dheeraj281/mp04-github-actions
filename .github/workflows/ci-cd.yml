@@ -92,7 +92,7 @@ jobs:
           context: ./bike_sharing_api
           push: true
           tags: ${{ secrets.DOCKER_USER_NAME }}/bike-sharing-api:latest
-name: Model Training and API Deployment
+          name: Model Training and API Deployment
 
 on:
   push:
