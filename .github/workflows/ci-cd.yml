@@ -9,7 +9,7 @@ jobs:
   train-and-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -38,7 +38,7 @@ jobs:
     needs: train-and-test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -46,7 +46,7 @@ jobs:
           python-version: '3.12'
           
       - name: Download trained model
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: trained-model
           path: bikeshare_model/trained_models/
@@ -60,7 +60,7 @@ jobs:
         run: python -m build
         
       - name: Upload package
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: model-package
           path: dist/
@@ -69,10 +69,10 @@ jobs:
     needs: build-package
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       
       - name: Download model package
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: model-package
           path: bike_sharing_api/
